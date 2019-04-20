@@ -1,8 +1,21 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+//"https://api.github.com/users/octocat"
 class App extends Component {
+  getUser(username){
+    fetch(`https://api.github.com/users/${username}`)
+    .then(response =>response.json())
+    .then(response => {
+      console.log(response);
+      return response;
+    })
+  }
+  handleSubmit(e){
+    e.preventDefault();
+    this.getUser(this.refs.username.value)
+  }
+
   render() {
     return (
       <div className="App">
@@ -11,14 +24,9 @@ class App extends Component {
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+         <form onSubmit = {e => this.handleSubmit(e)}>
+           <input ref = "username" type = "text" placeholder ="username"/>
+           </form>
         </header>
       </div>
     );
