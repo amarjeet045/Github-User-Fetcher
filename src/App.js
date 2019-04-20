@@ -14,7 +14,8 @@ class App extends Component {
       following:null,
       location:null,
       craeted_at:null,
-      repos_url:null
+      repos_url:null,
+      bio:null
 
     }
   }
@@ -36,7 +37,8 @@ class App extends Component {
     following:user.following,
     location:user.location,
     created_at:user.created_at,
-    repos_url:user.repos_url
+    repos_url:user.repos_url,
+    bio: user.bio
     });
       
     
@@ -58,6 +60,7 @@ class App extends Component {
           <br/>Location : {this.state.location}
           <br/>created_at :{this.state.created_at}
           <br/>repos_url : {this.state.repos_url}
+          <br/>Bio: {this.state.bio}
           
           </p>
         
